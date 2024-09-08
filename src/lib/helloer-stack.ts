@@ -14,11 +14,12 @@ export class HelloerStack extends cdk.Stack {
     super(scope, id, props);
 
     // create API gateway
-    const api = new apigateway.RestApi(this, "alma-hello-api", {
-      restApiName: "Alma Hello API",
+    const api = new apigateway.RestApi(this, "recruitment-api", {
+      restApiName: "Recruitment API",
       description: "This service says hello.",
       deployOptions: {
         stageName: "prod",
+        description: "Version 1.0.0",
       },
     });
 
@@ -38,5 +39,43 @@ export class HelloerStack extends cdk.Stack {
     // Add Lambda integrations
     const getIntegration = new apigateway.LambdaIntegration(helloGet);
     const postIntegration = new apigateway.LambdaIntegration(helloPost);
+
+    const helloResource = api.root.addResource("hello");
+    const nameResource = helloResource.addResource("{name}");
+
+    // Add api resources
+    nameResource.addMethod("GET", getIntegration);
+    const postMethod = helloResource.addMethod("POST", postIntegration, {
+      apiKeyRequired: true,
+    });
+
+    // Create API key
+    const apiKey = api.addApiKey("AlmaHelloApiKey", {
+      apiKeyName: "api-key",
+    });
+
+    // add usage plan
+    const plan = api.addUsagePlan("AlmaHelloUsagePlan", {
+      name: "Easy",
+      throttle: {
+        rateLimit: 10,
+        burstLimit: 2,
+      },
+    });
+    plan.addApiKey(apiKey);
+
+    // Associate the usage plan with the API stage
+    plan.addApiStage({
+      stage: api.deploymentStage,
+      throttle: [
+        {
+          method: postMethod,
+          throttle: {
+            rateLimit: 10,
+            burstLimit: 2,
+          },
+        },
+      ],
+    });
   }
 }
