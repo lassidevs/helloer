@@ -1,0 +1,135 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.12">
+  <diagram name="Page-1" id="Y2dZa3NIwyO58BGjasqE">
+    <mxGraphModel dx="798" dy="757" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bET_kMBkvYbQsHSAcCPg-1" value="Client" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="20" y="20" width="150" height="1112" as="geometry" />
+        </mxCell>
+        <mxCell id="bET_kMBkvYbQsHSAcCPg-2" value="AWS API Gateway" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="409" y="20" width="150" height="1112" as="geometry" />
+        </mxCell>
+        <mxCell id="bET_kMBkvYbQsHSAcCPg-3" value="Lambda Function" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="798" y="20" width="150" height="1112" as="geometry" />
+        </mxCell>
+        <mxCell id="bET_kMBkvYbQsHSAcCPg-4" value="GET /hello/{name}" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="bET_kMBkvYbQsHSAcCPg-1" target="bET_kMBkvYbQsHSAcCPg-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="298" y="127" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bET_kMBkvYbQsHSAcCPg-5" value="Forward request" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="bET_kMBkvYbQsHSAcCPg-2" target="bET_kMBkvYbQsHSAcCPg-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="687" y="179" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bET_kMBkvYbQsHSAcCPg-6" value="200 OK: {&quot;message&quot;: &quot;Hello {name}&quot;}" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="bET_kMBkvYbQsHSAcCPg-3" target="bET_kMBkvYbQsHSAcCPg-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="690" y="231" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bET_kMBkvYbQsHSAcCPg-7" value="200 OK: {&quot;message&quot;: &quot;Hello {name}&quot;}" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="bET_kMBkvYbQsHSAcCPg-2" target="bET_kMBkvYbQsHSAcCPg-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="301" y="283" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bET_kMBkvYbQsHSAcCPg-8" value="POST /hello (with API key)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="bET_kMBkvYbQsHSAcCPg-1" target="bET_kMBkvYbQsHSAcCPg-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="298" y="335" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bET_kMBkvYbQsHSAcCPg-9" value="Check API Key" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="bET_kMBkvYbQsHSAcCPg-2" target="bET_kMBkvYbQsHSAcCPg-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="535" y="387" />
+              <mxPoint x="535" y="417" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bET_kMBkvYbQsHSAcCPg-10" value="Forward request" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="bET_kMBkvYbQsHSAcCPg-2" target="bET_kMBkvYbQsHSAcCPg-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="687" y="469" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bET_kMBkvYbQsHSAcCPg-11" value="Check for name in body" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="bET_kMBkvYbQsHSAcCPg-3" target="bET_kMBkvYbQsHSAcCPg-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="924" y="521" />
+              <mxPoint x="924" y="551" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bET_kMBkvYbQsHSAcCPg-12" value="200 OK: {&quot;message&quot;: &quot;Hello Jane Doe&quot;}" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="bET_kMBkvYbQsHSAcCPg-3" target="bET_kMBkvYbQsHSAcCPg-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="690" y="603" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bET_kMBkvYbQsHSAcCPg-13" value="200 OK: {&quot;message&quot;: &quot;Hello Jane Doe&quot;}" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="bET_kMBkvYbQsHSAcCPg-2" target="bET_kMBkvYbQsHSAcCPg-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="301" y="655" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bET_kMBkvYbQsHSAcCPg-14" value="POST /hello (no name in body)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="bET_kMBkvYbQsHSAcCPg-1" target="bET_kMBkvYbQsHSAcCPg-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="298" y="707" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bET_kMBkvYbQsHSAcCPg-15" value="Check API Key" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="bET_kMBkvYbQsHSAcCPg-2" target="bET_kMBkvYbQsHSAcCPg-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="535" y="759" />
+              <mxPoint x="535" y="789" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bET_kMBkvYbQsHSAcCPg-16" value="Forward request" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="bET_kMBkvYbQsHSAcCPg-2" target="bET_kMBkvYbQsHSAcCPg-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="687" y="841" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bET_kMBkvYbQsHSAcCPg-17" value="Check for name in body" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="bET_kMBkvYbQsHSAcCPg-3" target="bET_kMBkvYbQsHSAcCPg-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="924" y="893" />
+              <mxPoint x="924" y="923" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bET_kMBkvYbQsHSAcCPg-18" value="400 Bad Request: {&quot;message&quot;: &quot;Bad Request&quot;}" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="bET_kMBkvYbQsHSAcCPg-3" target="bET_kMBkvYbQsHSAcCPg-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="690" y="975" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bET_kMBkvYbQsHSAcCPg-19" value="400 Bad Request: {&quot;message&quot;: &quot;Bad Request&quot;}" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="bET_kMBkvYbQsHSAcCPg-2" target="bET_kMBkvYbQsHSAcCPg-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="301" y="1027" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
