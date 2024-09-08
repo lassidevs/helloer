@@ -1,4 +1,4 @@
-# Simple
+# Simple Hello API
 
 This project implements a simple API using AWS CDK, API Gateway, and Lambda functions based on the provided OpenAPI schema.
 
