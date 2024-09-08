@@ -13,6 +13,10 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 5. `cdk deploy`
    Your api gateway should now be deployed with the lambda functions integrated 🥳
 
+### Clean up
+
+When you're done, clean up by running `cdk destroy HelloerStack` to destroy the cloudformation stack and all associated resources. 🧹
+
 ## Useful commands
 
 - `npm run build` compile typescript to js. (AWS cli builds for us, this is not necessary for deploying the cdk stack. See dist/README.md for info)
