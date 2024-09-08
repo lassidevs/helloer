@@ -26,6 +26,7 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
 Also found from project root
 
+```mermaid
 sequenceDiagram
 participant Client
 participant Gateway as AWS API Gateway
@@ -52,3 +53,4 @@ participant Lambda as Lambda Function
     Lambda->>Lambda: Check for name in body
     Lambda->>Gateway: 400 Bad Request: {"message": "Bad Request"}
     Gateway->>Client: 400 Bad Request: {"message": "Bad Request"}
+```
