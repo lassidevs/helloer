@@ -11,8 +11,10 @@
     "cdk": "cdk"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
     "@types/node": "20.14.9",
     "aws-cdk": "2.155.0",
+    "js-yaml": "^4.1.0",
     "ts-node": "^10.9.2",
     "typescript": "~5.5.3",
     "vitest": "^2.0.5"
