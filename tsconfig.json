@@ -29,6 +29,7 @@
       "./node_modules/@types"
     ]
   },
+  "ts-node": { "esm": true },
   "exclude": [
     "node_modules",
     "cdk.out",
