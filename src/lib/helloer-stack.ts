@@ -5,28 +5,18 @@ import * as nodejs from "aws-cdk-lib/aws-lambda-nodejs";
 import { Construct } from "constructs";
 import * as path from "path";
 import { fileURLToPath } from "url";
-import * as yaml from "js-yaml";
-import * as fs from "fs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-// load OpenAPI schema
-
-const schema = yaml.load(
-  fs.readFileSync(
-    path.join(__dirname, "..", "..", "openapiSchema.yml"),
-    "utf-8",
-  ),
-);
 
 export class HelloerStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
     // create API gateway
-    const api = new apigateway.SpecRestApi(this, "alma-helloer-api", {
-      apiDefinition: apigateway.ApiDefinition.fromInline(schema),
+    const api = new apigateway.RestApi(this, "alma-hello-api", {
+      restApiName: "Alma Hello API",
+      description: "This service says hello.",
       deployOptions: {
         stageName: "prod",
       },
@@ -48,15 +38,5 @@ export class HelloerStack extends cdk.Stack {
     // Add Lambda integrations
     const getIntegration = new apigateway.LambdaIntegration(helloGet);
     const postIntegration = new apigateway.LambdaIntegration(helloPost);
-
-    // Get the resources from the API
-    const helloResource = api.root.getResource("hello");
-    if (!helloResource) {
-      throw new Error("hello resource not found in API definition");
-    }
-    const helloNameResource = helloResource.getResource("{name}");
-    if (!helloNameResource) {
-      throw new Error("{name} resource not found in API definition");
-    }
   }
 }
