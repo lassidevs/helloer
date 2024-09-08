@@ -8,5 +8,8 @@ node_modules
 cdk.out
 
 # other
-cdk.out
+nohup.out
+
+dist/*
+!dist/README.md
 
