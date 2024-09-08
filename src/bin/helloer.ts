@@ -13,4 +13,3 @@ new HelloerStack(app, "HelloerStack", {
     region: process.env.CDK_DEFAULT_REGION,
   },
 });
-
